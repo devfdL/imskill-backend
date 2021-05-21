@@ -13,7 +13,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'qdn6*l9!h8%mksw#k=x+(ust2apyn2r4h(#!-5!81pei@ecv$i'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config('DEBUG', default=False, cast=bool)
 
 ALLOWED_HOSTS = []
 
@@ -71,12 +71,10 @@ WSGI_APPLICATION = 'imskill.wsgi.application'
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+    'default': dj_database_url.config(
+        default=config('postgres://bjeewtkoonatsx:d3455eab49a0699b15f90b381653c03c88ebf3e6c9c6433ece95132cd44c25e9@ec2-34-200-94-86.compute-1.amazonaws.com:5432/d3l2stq915hunq')
+    )
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators

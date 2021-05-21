@@ -15,7 +15,7 @@ SECRET_KEY = 'qdn6*l9!h8%mksw#k=x+(ust2apyn2r4h(#!-5!81pei@ecv$i'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['.herokuapp.com', '127.0.0.1']
 
 DISABLE_COLLECTSTATIC = 1
 

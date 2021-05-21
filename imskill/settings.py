@@ -71,9 +71,10 @@ WSGI_APPLICATION = 'imskill.wsgi.application'
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 DATABASES = {
-    'default': dj_database_url.config(
-        default=config('postgres://bjeewtkoonatsx:d3455eab49a0699b15f90b381653c03c88ebf3e6c9c6433ece95132cd44c25e9@ec2-34-200-94-86.compute-1.amazonaws.com:5432/d3l2stq915hunq')
-    )
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
 }
 
 # Password validation
